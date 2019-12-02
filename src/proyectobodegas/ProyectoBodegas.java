@@ -5,6 +5,8 @@
  */
 package proyectobodegas;
 
+import proyectobodegas.Estructura.Bodega;
+
 /**
  *
  * @author propietario
@@ -16,6 +18,7 @@ public class ProyectoBodegas {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       
     }
     
 }
