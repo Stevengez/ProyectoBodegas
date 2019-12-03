@@ -54,8 +54,12 @@ public class Bodega {
         if(!lista_inicializada){
             Nodo_bodega_actual = Nodo_bodega_inicial;
             lista_inicializada = true;
+            if(Size>0){
+                return true;
+            }
         }
-        if(Size > 0 ){
+        
+        if(Size > 1 ){
             if(Nodo_bodega_actual.obtenerSiguiente()!= null){
                 Nodo_bodega_actual = Nodo_bodega_actual.obtenerSiguiente();
                 return true;

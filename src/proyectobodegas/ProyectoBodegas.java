@@ -87,13 +87,12 @@ public class ProyectoBodegas extends JFrame{
         Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
         Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");       
         
-        
         while(Lista_Bodegas.SiguienteBodega()){
             System.out.println("Estoy en la bodega: "+Lista_Bodegas.bodegaActual().obtenerIdentificador());
             while(Lista_Bodegas.bodegaActual().Niveles().SiguienteNivel()){
-                System.out.println("Estoy en el nivel: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().obtenerIdentificador());
+                System.out.println("     Estoy en el nivel: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().obtenerIdentificador());
                 while(Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().SiguienteArea()){
-                    System.out.println("Estoy en el area: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().obtenerIdentificador());
+                    System.out.println("          Estoy en el area: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().obtenerIdentificador());
                     while(Lista_Bodegas
                             .bodegaActual()
                             .Niveles()
@@ -102,7 +101,7 @@ public class ProyectoBodegas extends JFrame{
                             .areaActual()
                             .Estantes()
                             .SiguienteEstante()){
-                        System.out.println("Estoy en el estante: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().obtenerIdentificador());
+                        System.out.println("               Estoy en el estante: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().obtenerIdentificador());
                     }
                 }
             }

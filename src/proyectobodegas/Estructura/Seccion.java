@@ -52,8 +52,12 @@ public class Seccion {
         if(!lista_inicializada){
             Nodo_seccion_actual = Nodo_seccion_inicial;
             lista_inicializada = true;
+            if(Size>0){
+                return true;
+            }
         }
-        if(Size > 0 ){
+        
+        if(Size > 1 ){
             if(Nodo_seccion_actual.obtenerSiguiente()!= null){
                 Nodo_seccion_actual = Nodo_seccion_actual.obtenerSiguiente();
                 return true;

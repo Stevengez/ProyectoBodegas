@@ -52,8 +52,12 @@ public class Area {
         if(!lista_inicializada){
             Nodo_area_actual = Nodo_area_inicial;
             lista_inicializada = true;
+            if(Size>0){
+                return true;
+            }
         }
-        if(Size > 0 ){
+        
+        if(Size > 1 ){
             if(Nodo_area_actual.obtenerSiguiente()!= null){
                 Nodo_area_actual = Nodo_area_actual.obtenerSiguiente();
                 return true;
