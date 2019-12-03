@@ -53,8 +53,8 @@ public class Nivel {
         if(!lista_inicializada){
             Nodo_nivel_actual = Nodo_nivel_inicial;
             lista_inicializada = true;
-            return true;
-        }else if(Size > 0 ){
+        }
+        if(Size > 0 ){
             if(Nodo_nivel_actual.obtenerSiguiente()!= null){
                 Nodo_nivel_actual = Nodo_nivel_actual.obtenerSiguiente();
                 return true;

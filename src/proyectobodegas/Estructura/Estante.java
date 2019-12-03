@@ -53,8 +53,9 @@ public class Estante {
         if(!lista_inicializada){
             Nodo_estante_actual = Nodo_estante_inicial;
             lista_inicializada = true;
-            return true;
-        }else if(Size > 0 ){
+        }
+        
+        if(Size > 0 ){
             if(Nodo_estante_actual.obtenerSiguiente()!= null){
                 Nodo_estante_actual = Nodo_estante_actual.obtenerSiguiente();
                 return true;

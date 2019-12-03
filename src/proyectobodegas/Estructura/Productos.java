@@ -52,8 +52,8 @@ public class Productos {
         if(!lista_inicializada){
             Nodo_producto_actual = Nodo_producto_inicial;
             lista_inicializada = true;
-            return true;
-        }else if(Size > 0 ){
+        }
+        if(Size > 0 ){
             if(Nodo_producto_actual.obtenerSiguiente()!= null){
                 Nodo_producto_actual = Nodo_producto_actual.obtenerSiguiente();
                 return true;
