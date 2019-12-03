@@ -20,31 +20,29 @@ public class ProyectoBodegas extends JFrame{
     public static void main(String[] args) {
         // TODO code application logic here
         Bodega Lista_Bodegas = new Bodega();
+        //Pruebas iniciales de la estructura.
         Lista_Bodegas.agregarBodega("Primera");
         Lista_Bodegas.SiguienteBodega();
         Lista_Bodegas.bodegaActual().Niveles().agregarNivel("Primer Nivel");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().agregarArea("Area 1");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().agregarArea("Area 2");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().Secciones().agregarSeccion("Seccion 1");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().Secciones().agregarSeccion("Seccion 2");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().Secciones().agregarSeccion("Seccion 3");
-        Lista_Bodegas.bodegaActual().Niveles().agregarNivel("Segundo Nivel");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
         
-        Lista_Bodegas.agregarBodega("Primera");
-        Lista_Bodegas.SiguienteBodega();
         Lista_Bodegas.bodegaActual().Niveles().agregarNivel("Primer Nivel");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().agregarArea("Area 1");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().agregarArea("Area 2");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().Secciones().agregarSeccion("Seccion 1");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().Secciones().agregarSeccion("Seccion 2");
-        Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().Secciones().agregarSeccion("Seccion 3");
-        Lista_Bodegas.bodegaActual().Niveles().agregarNivel("Segundo Nivel");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
         
-       
+        Lista_Bodegas.bodegaActual().Niveles().agregarNivel("Primer Nivel");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
+        Lista_Bodegas.bodegaActual().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");       
     }
     
     public void IniciarVentana(){

@@ -27,13 +27,18 @@ public class Area {
     }
     
     /**
-     * Devuelve el elemento actual de la lista.
+     * Devuelve el ultimo elemento agregado a la lista.
      * @return Devuelve un objecto del tipo Nodo_Area.
      */
     
     public Nodo_Area ultimaAgregada(){
         return Nodo_area_final;
     }
+    
+    /**
+     * Devuelve el elemento actual de la lista.
+     * @return Devuelve un objecto del tipo Nodo_Area.
+     */
     
     public Nodo_Area areaActual(){
         return Nodo_area_actual;
