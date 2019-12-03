@@ -12,7 +12,7 @@ package proyectobodegas.Estructura;
 public class Nivel {
     
     private Nodo_Nivel Nodo_nivel_inicial, Nodo_nivel_final, Nodo_nivel_actual;
-    private Area Lista_Areas;
+    private boolean lista_inicializada;
     private int Size;
     
     /**
@@ -23,8 +23,17 @@ public class Nivel {
         Nodo_nivel_inicial = null;
         Nodo_nivel_final = null;
         Nodo_nivel_actual = null;
-        Lista_Areas = new Area();
+        lista_inicializada = false;
         Size = 0;
+    }
+    
+    /**
+     * Devuelve el ultimo elemento agregado a la lista.
+     * @return Devuelve un objecto del tipo Nodo_Area.
+     */
+    
+    public Nodo_Nivel ultimoAgregado(){
+        return Nodo_nivel_final;
     }
     
     /**
@@ -32,18 +41,24 @@ public class Nivel {
      * @return Devuelve un objecto del tipo Nodo_Nivel.
      */
     
-    public Nodo_Nivel bodegaActual(){
+    public Nodo_Nivel nivelActual(){
         return Nodo_nivel_actual;
     }
     
     /**
      * Mueve el cursor a la siguient nivel.
      * @return Devuelve TRUE si el puntero pudo avanzar a la siguient nivel y FALSE si ya no hay mas bodegas.
-    */
-    public boolean SiguienteBodega(){
-        if(Nodo_nivel_actual.obtenerSiguiente()!= null){
-            Nodo_nivel_actual = Nodo_nivel_actual.obtenerSiguiente();
+    */    
+    public boolean SiguienteNivel(){
+        if(!lista_inicializada){
+            Nodo_nivel_actual = Nodo_nivel_inicial;
+            lista_inicializada = true;
             return true;
+        }else if(Size > 0 ){
+            if(Nodo_nivel_actual.obtenerSiguiente()!= null){
+                Nodo_nivel_actual = Nodo_nivel_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }
@@ -53,7 +68,7 @@ public class Nivel {
      * @param nombre_nivel Nombre de la nuev nivel.
      */
     
-    public void agregarBodega(String nombre_nivel){
+    public void agregarNivel(String nombre_nivel){
         Nodo_Nivel Nuevo_nivel = new Nodo_Nivel(Size,nombre_nivel);
         if(Nodo_nivel_inicial==null){
             Nodo_nivel_inicial = Nuevo_nivel;
@@ -70,7 +85,7 @@ public class Nivel {
      * Elimina el elemento actual de la lista.
      */
     
-    public void eliminarBodegaActual(){
+    public void eliminarNivelActual(){
         Nodo_nivel_actual.obtenerAnterior().definirSiguiente(Nodo_nivel_actual.obtenerSiguiente());
         if(Nodo_nivel_actual.obtenerSiguiente() != null){
             Nodo_nivel_actual.obtenerSiguiente().definirAnterior(Nodo_nivel_actual.obtenerAnterior());
@@ -84,7 +99,7 @@ public class Nivel {
     
     public void eliminarEnIndice(int indice){
         if(irAIndice(indice)){
-            eliminarBodegaActual();
+            eliminarNivelActual();
         }
     }
     
@@ -96,7 +111,7 @@ public class Nivel {
     
     public boolean irAIndice(int indice){
         Nodo_nivel_actual = Nodo_nivel_inicial;
-        while(SiguienteBodega()){
+        while(SiguienteNivel()){
             if(Nodo_nivel_actual.obtenerIndice()==indice){
                 return true;
             }

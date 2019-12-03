@@ -13,6 +13,7 @@ package proyectobodegas.Estructura;
 public class Bodega {
     
     private Nodo_Bodega Nodo_bodega_inicial, Nodo_bodega_final, Nodo_bodega_actual;  
+    private boolean lista_inicializada;
     private int Size;
     
     /**
@@ -24,6 +25,16 @@ public class Bodega {
         Nodo_bodega_inicial = null;
         Nodo_bodega_final = null;
         Nodo_bodega_actual = null;
+        lista_inicializada = false;
+    }
+    
+    /**
+     * Devuelve el ultimo elemento agregado a la lista.
+     * @return Devuelve un objecto del tipo Nodo_Area.
+     */
+    
+    public Nodo_Bodega ultimaAgregada(){
+        return Nodo_bodega_final;
     }
     
     /**
@@ -40,9 +51,15 @@ public class Bodega {
      * @return Devuelve TRUE si el puntero pudo avanzar a la siguiente bodega y FALSE si ya no hay mas bodegas.
     */
     public boolean SiguienteBodega(){
-        if(Nodo_bodega_actual.obtenerSiguiente()!= null){
-            Nodo_bodega_actual = Nodo_bodega_actual.obtenerSiguiente();
+        if(!lista_inicializada){
+            Nodo_bodega_actual = Nodo_bodega_inicial;
+            lista_inicializada = true;
             return true;
+        }else if(Size > 0 ){
+            if(Nodo_bodega_actual.obtenerSiguiente()!= null){
+                Nodo_bodega_actual = Nodo_bodega_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }
@@ -57,6 +74,7 @@ public class Bodega {
         if(Nodo_bodega_inicial==null){
             Nodo_bodega_inicial = Nueva_bodega;
             Nodo_bodega_final = Nueva_bodega;
+            Nodo_bodega_actual = Nueva_bodega;
         }else{
             Nueva_bodega.definirAnterior(Nodo_bodega_final);
             Nodo_bodega_final.definirSiguiente(Nueva_bodega);

@@ -12,6 +12,7 @@ package proyectobodegas.Estructura;
 public class Estante {
     
     private Nodo_Estante Nodo_estante_inicial, Nodo_estante_final, Nodo_estante_actual;  
+    private boolean lista_inicializada;
     private int Size;
     
     /**
@@ -23,10 +24,20 @@ public class Estante {
         Nodo_estante_inicial = null;
         Nodo_estante_final = null;
         Nodo_estante_actual = null;
+        lista_inicializada = false;
     }
     
     /**
-     * Devuelve el elemento actual de la lista.
+     * Devuelve el ultimo elemento agregado a la lista.
+     * @return Devuelve un objecto del tipo Nodo_Area.
+     */
+    
+    public Nodo_Estante ultimoAgregado(){
+        return Nodo_estante_final;
+    }
+    
+    /**
+     * Devuelve el elemento actual (ultimo agregado) de la lista.
      * @return Devuelve un objecto del tipo Nodo_Estante.
      */
     
@@ -39,9 +50,15 @@ public class Estante {
      * @return Devuelve TRUE si el puntero pudo avanzar a la siguiente Estante y FALSE si ya no hay mas bodegas.
     */
     public boolean SiguienteEstante(){
-        if(Nodo_estante_actual.obtenerSiguiente()!= null){
-            Nodo_estante_actual = Nodo_estante_actual.obtenerSiguiente();
+        if(!lista_inicializada){
+            Nodo_estante_actual = Nodo_estante_inicial;
+            lista_inicializada = true;
             return true;
+        }else if(Size > 0 ){
+            if(Nodo_estante_actual.obtenerSiguiente()!= null){
+                Nodo_estante_actual = Nodo_estante_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }

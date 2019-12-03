@@ -11,6 +11,7 @@ package proyectobodegas.Estructura;
  */
 public class Seccion {
     private Nodo_Seccion Nodo_seccion_inicial, Nodo_seccion_final, Nodo_seccion_actual;  
+    private boolean lista_inicializada;
     private int Size;
     
     /**
@@ -22,6 +23,16 @@ public class Seccion {
         Nodo_seccion_inicial = null;
         Nodo_seccion_final = null;
         Nodo_seccion_actual = null;
+        lista_inicializada = false;
+    }
+    
+    /**
+     * Devuelve el ultimo elemento agregado a la lista.
+     * @return Devuelve un objecto del tipo Nodo_Area.
+     */
+    
+    public Nodo_Seccion ultimaAgregada(){
+        return Nodo_seccion_final;
     }
     
     /**
@@ -36,11 +47,17 @@ public class Seccion {
     /**
      * Mueve el cursor a la siguiente Seccion.
      * @return Devuelve TRUE si el puntero pudo avanzar a la siguiente Seccion y FALSE si ya no hay mas bodegas.
-    */
+    */    
     public boolean SiguienteSeccion(){
-        if(Nodo_seccion_actual.obtenerSiguiente()!= null){
-            Nodo_seccion_actual = Nodo_seccion_actual.obtenerSiguiente();
+        if(!lista_inicializada){
+            Nodo_seccion_actual = Nodo_seccion_inicial;
+            lista_inicializada = true;
             return true;
+        }else if(Size > 0 ){
+            if(Nodo_seccion_actual.obtenerSiguiente()!= null){
+                Nodo_seccion_actual = Nodo_seccion_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }

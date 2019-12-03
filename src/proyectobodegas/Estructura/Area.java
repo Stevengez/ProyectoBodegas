@@ -10,7 +10,8 @@ package proyectobodegas.Estructura;
  * @author Steven Jocol
  */
 public class Area {
-    private Nodo_Area Nodo_area_inicial, Nodo_producto_final, Nodo_producto_actual;  
+    private Nodo_Area Nodo_area_inicial, Nodo_area_final, Nodo_area_actual;  
+    private boolean lista_inicializada;
     private int Size;
     
     /**
@@ -20,8 +21,9 @@ public class Area {
     public Area(){
         Size = 0;
         Nodo_area_inicial = null;
-        Nodo_producto_final = null;
-        Nodo_producto_actual = null;
+        Nodo_area_final = null;
+        Nodo_area_actual = null;
+        lista_inicializada = false;
     }
     
     /**
@@ -29,18 +31,28 @@ public class Area {
      * @return Devuelve un objecto del tipo Nodo_Area.
      */
     
+    public Nodo_Area ultimaAgregada(){
+        return Nodo_area_final;
+    }
+    
     public Nodo_Area areaActual(){
-        return Nodo_producto_actual;
+        return Nodo_area_actual;
     }
     
     /**
      * Mueve el cursor a la siguiente Area.
      * @return Devuelve TRUE si el puntero pudo avanzar a la siguiente Area y FALSE si ya no hay mas bodegas.
-    */
+    */    
     public boolean SiguienteArea(){
-        if(Nodo_producto_actual.obtenerSiguiente()!= null){
-            Nodo_producto_actual = Nodo_producto_actual.obtenerSiguiente();
+        if(!lista_inicializada){
+            Nodo_area_actual = Nodo_area_inicial;
+            lista_inicializada = true;
             return true;
+        }else if(Size > 0 ){
+            if(Nodo_area_actual.obtenerSiguiente()!= null){
+                Nodo_area_actual = Nodo_area_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }
@@ -50,15 +62,15 @@ public class Area {
      * @param nombre_bodega Nombre de la nueva Area.
      */
     
-    public void agregarBodega(String nombre_bodega){
-        Nodo_Area Nueva_bodega = new Nodo_Area(Size,nombre_bodega);
+    public void agregarArea(String nombre_bodega){
+        Nodo_Area Nueva_Area = new Nodo_Area(Size,nombre_bodega);
         if(Nodo_area_inicial==null){
-            Nodo_area_inicial = Nueva_bodega;
-            Nodo_producto_final = Nueva_bodega;
+            Nodo_area_inicial = Nueva_Area;
+            Nodo_area_final = Nueva_Area;
         }else{
-            Nueva_bodega.definirAnterior(Nodo_producto_final);
-            Nodo_producto_final.definirSiguiente(Nueva_bodega);
-            Nodo_producto_final = Nueva_bodega;
+            Nueva_Area.definirAnterior(Nodo_area_final);
+            Nodo_area_final.definirSiguiente(Nueva_Area);
+            Nodo_area_final = Nueva_Area;
         }
         Size++;
     }
@@ -67,10 +79,10 @@ public class Area {
      * Elimina el elemento actual de la lista.
      */
     
-    public void eliminarProductoActual(){
-        Nodo_producto_actual.obtenerAnterior().definirSiguiente(Nodo_producto_actual.obtenerSiguiente());
-        if(Nodo_producto_actual.obtenerSiguiente() != null){
-            Nodo_producto_actual.obtenerSiguiente().definirAnterior(Nodo_producto_actual.obtenerAnterior());
+    public void eliminarAreaActual(){
+        Nodo_area_actual.obtenerAnterior().definirSiguiente(Nodo_area_actual.obtenerSiguiente());
+        if(Nodo_area_actual.obtenerSiguiente() != null){
+            Nodo_area_actual.obtenerSiguiente().definirAnterior(Nodo_area_actual.obtenerAnterior());
         }        
     }
     
@@ -81,7 +93,7 @@ public class Area {
     
     public void eliminarEnIndice(int indice){
         if(irAIndice(indice)){
-            eliminarProductoActual();
+            eliminarAreaActual();
         }
     }
     
@@ -92,9 +104,9 @@ public class Area {
      */
     
     public boolean irAIndice(int indice){
-        Nodo_producto_actual = Nodo_area_inicial;
+        Nodo_area_actual = Nodo_area_inicial;
         while(SiguienteArea()){
-            if(Nodo_producto_actual.obtenerIndice()==indice){
+            if(Nodo_area_actual.obtenerIndice()==indice){
                 return true;
             }
         }
@@ -113,14 +125,14 @@ public class Area {
             return false;
         }else{
             if(Temporal.obtenerIdentificador().equals(identificador)){
-                Nodo_producto_actual = Temporal;
+                Nodo_area_actual = Temporal;
                 return true;
             }
         }
         
         while(Temporal.obtenerSiguiente()!= null){
             if(Temporal.obtenerIdentificador().equals(identificador)){
-                Nodo_producto_actual = Temporal;
+                Nodo_area_actual = Temporal;
                 return true;
             }
         }

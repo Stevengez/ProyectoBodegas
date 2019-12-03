@@ -11,6 +11,7 @@ package proyectobodegas.Estructura;
  */
 public class Productos {
     private Nodo_Producto Nodo_producto_inicial, Nodo_producto_final, Nodo_producto_actual;  
+    private boolean lista_inicializada;
     private int Size;
     
     /**
@@ -22,6 +23,16 @@ public class Productos {
         Nodo_producto_inicial = null;
         Nodo_producto_final = null;
         Nodo_producto_actual = null;
+        lista_inicializada = false;
+    }
+    
+    /**
+     * Devuelve el ultimo elemento agregado a la lista.
+     * @return Devuelve un objecto del tipo Nodo_Area.
+     */
+    
+    public Nodo_Producto ultimoAgregado(){
+        return Nodo_producto_final;
     }
     
     /**
@@ -38,9 +49,15 @@ public class Productos {
      * @return Devuelve TRUE si el puntero pudo avanzar a la siguiente Productos y FALSE si ya no hay mas bodegas.
     */
     public boolean SiguienteProducto(){
-        if(Nodo_producto_actual.obtenerSiguiente()!= null){
-            Nodo_producto_actual = Nodo_producto_actual.obtenerSiguiente();
+        if(!lista_inicializada){
+            Nodo_producto_actual = Nodo_producto_inicial;
+            lista_inicializada = true;
             return true;
+        }else if(Size > 0 ){
+            if(Nodo_producto_actual.obtenerSiguiente()!= null){
+                Nodo_producto_actual = Nodo_producto_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }
