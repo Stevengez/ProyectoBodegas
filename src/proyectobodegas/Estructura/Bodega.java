@@ -12,8 +12,8 @@ package proyectobodegas.Estructura;
  */
 public class Bodega {
     
-    Nodo_Bodega Nodo_bodega_inicial, Nodo_bodega_final, Nodo_bodega_actual;  
-    int Size;
+    private Nodo_Bodega Nodo_bodega_inicial, Nodo_bodega_final, Nodo_bodega_actual;  
+    private int Size;
     
     /**
      * Lista de Bodegas.
@@ -48,15 +48,108 @@ public class Bodega {
     }
     
     /**
-     * Agrega una bodega al final de la lista.
+     * Agrega un nuevo elemento al final de la lista.
+     * @param nombre_bodega Nombre de la nueva Bodega.
      */
     
-    public void agregarBodega(){
-        
+    public void agregarBodega(String nombre_bodega){
+        Nodo_Bodega Nueva_bodega = new Nodo_Bodega(Size,nombre_bodega);
+        if(Nodo_bodega_inicial==null){
+            Nodo_bodega_inicial = Nueva_bodega;
+            Nodo_bodega_final = Nueva_bodega;
+        }else{
+            Nueva_bodega.definirAnterior(Nodo_bodega_final);
+            Nodo_bodega_final.definirSiguiente(Nueva_bodega);
+            Nodo_bodega_final = Nueva_bodega;
+        }
+        Size++;
     }
     
-    public void eliminarBodega(){
-        
+    /**
+     * Elimina el elemento actual de la lista.
+     */
+    
+    public void eliminarBodegaActual(){
+        Nodo_bodega_actual.obtenerAnterior().definirSiguiente(Nodo_bodega_actual.obtenerSiguiente());
+        if(Nodo_bodega_actual.obtenerSiguiente() != null){
+            Nodo_bodega_actual.obtenerSiguiente().definirAnterior(Nodo_bodega_actual.obtenerAnterior());
+        }        
     }
     
+    /**
+     * Eliminar la bodega en el indice proporcionado.
+     * @param indice 
+     */
+    
+    public void eliminarEnIndice(int indice){
+        if(irAIndice(indice)){
+            eliminarBodegaActual();
+        }
+    }
+    
+    /**
+     * Recorre la lista hasta el indice indicado y coloca el Nodo_Actual en el elemento Nodo_Bodega correspondiente.
+     * @param indice Indice numero al que se desea mover la lista.
+     * @return Devuelve TRUE si se encontro el indice de lo contrario devuelve FALSE.
+     */
+    
+    public boolean irAIndice(int indice){
+        Nodo_bodega_actual = Nodo_bodega_inicial;
+        while(SiguienteBodega()){
+            if(Nodo_bodega_actual.obtenerIndice()==indice){
+                return true;
+            }
+        }
+        return false;
+    }
+        
+    /**
+     * Recorre la lista hasta encontrar una bodega con el nombre proporcionado y la coloca en el elemento actual.
+     * @param identificador Nombre de la bodega
+     * @return Devuelve TRUE si existe una bodega con ese identificador o FALSE de lo contrario.
+     */
+    
+    public boolean irAIdentificador(String identificador){
+        Nodo_Bodega Temporal = Nodo_bodega_inicial;
+        if(Size==0){
+            return false;
+        }else{
+            if(Temporal.obtenerIdentificador().equals(identificador)){
+                Nodo_bodega_actual = Temporal;
+                return true;
+            }
+        }
+        
+        while(Temporal.obtenerSiguiente()!= null){
+            if(Temporal.obtenerIdentificador().equals(identificador)){
+                Nodo_bodega_actual = Temporal;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Busca del indice indicado sin mover el Nodo_Bodega Actual.
+     * @param identificador Indice numerico que se desea buscar.
+     * @return Devuelve TRUE si el indice existe de lo contrario devuelve FALSE.
+     */
+    
+    public boolean buscarPorIdentificador(String identificador){
+        Nodo_Bodega Temporal = Nodo_bodega_inicial;
+        if(Size==0){
+            return false;
+        }else{
+            if(Temporal.obtenerIdentificador().equals(identificador)){
+                return true;
+            }
+        }
+        
+        while(Temporal.obtenerSiguiente()!= null){
+            if(Temporal.obtenerIdentificador().equals(identificador)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -7,18 +7,21 @@ package proyectobodegas.Estructura;
 
 /**
  *
- * @author propietario
+ * @author Steven Jocol
  */
 public class Nodo_Bodega {
-    Nodo_Bodega Nodo_bodega_siguiente, Nodo_bodega_anterior;
-    String Nombre_bodega;
+    private Nodo_Bodega Nodo_bodega_siguiente, Nodo_bodega_anterior;
+    private String identificador;
+    private Nivel Lista_Niveles;
+    private int indice;
     
-    public Nodo_Bodega(String nombre_bodega){
+    public Nodo_Bodega(int indice, String identificador){
         Nodo_bodega_siguiente = null;
         Nodo_bodega_anterior = null;
+        Lista_Niveles = new Nivel();
         
-        Nombre_bodega = nombre_bodega;
-        
+        this.indice = indice;
+        this.identificador = identificador;
     }
     
     
@@ -38,6 +41,30 @@ public class Nodo_Bodega {
     
     public Nodo_Bodega obtenerAnterior(){
         return Nodo_bodega_anterior;
+    }
+    
+    public void definirSiguiente(Nodo_Bodega siguiente){
+        Nodo_bodega_siguiente = siguiente;
+    }
+    
+    public void definirAnterior(Nodo_Bodega anterior){
+        Nodo_bodega_anterior = anterior;
+    }
+    
+    public int obtenerIndice(){
+        return indice;
+    }
+    
+    public String obtenerIdentificador(){
+        return identificador;
+    }
+    
+    /**
+     * Devuelve una lista del tipo Nivel.
+     * @return Devuelve una lista ordenada del tipo Nivel.
+     */
+    public Nivel Niveles(){
+        return Lista_Niveles;
     }
     
 }

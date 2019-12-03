@@ -7,7 +7,7 @@ package proyectobodegas.Estructura;
 
 /**
  *
- * @author propietario
+ * @author Steven Jocol
  */
 public class Requisitos {
     private Nodo_Requisito Nodo_requisito_inicial, Nodo_requisito_final, Nodo_requisito_actual;
@@ -30,6 +30,36 @@ public class Requisitos {
             return true;
         }
         return false;
+    }
+    
+    /**
+     * Agrega un nuevo Requisito al final de la lista.
+     * @param identificador Nombre del requisito.
+     * @param descripcion Desccripcion del requisito.
+     */
+    
+    public void agregarRequisito(String identificador, String descripcion){
+        Nodo_Requisito Nuevo_requisito = new Nodo_Requisito(Size,identificador,descripcion);
+        if(Nodo_requisito_inicial==null){
+            Nodo_requisito_inicial = Nuevo_requisito;
+            Nodo_requisito_final = Nuevo_requisito;
+        }else{
+            Nodo_requisito_final.definirSiguiente(Nuevo_requisito);
+            Nuevo_requisito.definirAnterior(Nodo_requisito_final);
+            Nodo_requisito_final = Nuevo_requisito;
+        }
+        Size++;
+    }
+    
+    /**
+     * Elimina el elemento actual de la lista.
+     */
+    
+    public void eliminarRequisitoActual(){
+        Nodo_requisito_actual.obtenerAnterior().definirSiguiente(Nodo_requisito_actual.obtenerSiguiente());
+        if(Nodo_requisito_actual.obtenerSiguiente()!=null){
+            Nodo_requisito_actual.obtenerSiguiente().definirAnterior(Nodo_requisito_actual.obtenerAnterior());
+        }
     }
     
 }

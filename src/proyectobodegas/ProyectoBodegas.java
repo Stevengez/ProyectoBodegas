@@ -5,13 +5,14 @@
  */
 package proyectobodegas;
 
+import javax.swing.JFrame;
 import proyectobodegas.Estructura.Bodega;
 
 /**
  *
  * @author propietario
  */
-public class ProyectoBodegas {
+public class ProyectoBodegas extends JFrame{
 
     /**
      * @param args the command line arguments
@@ -19,6 +20,10 @@ public class ProyectoBodegas {
     public static void main(String[] args) {
         // TODO code application logic here
        
+    }
+    
+    public void IniciarVentana(){
+        
     }
     
 }

@@ -7,7 +7,7 @@ package proyectobodegas.Estructura;
 
 /**
  *
- * @author propietario
+ * @author Steven Jocol
  */
 public final class Constantes {
     
