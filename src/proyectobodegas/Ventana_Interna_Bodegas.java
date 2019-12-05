@@ -91,7 +91,7 @@ public class Ventana_Interna_Bodegas extends JInternalFrame {
         return scrollpane;
     }
     
-    public void llenarDatos(Bodega lista_bodegas){
+    private void llenarDatos(Bodega lista_bodegas){
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridy = y;

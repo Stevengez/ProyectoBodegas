@@ -5,9 +5,13 @@
  */
 package proyectobodegas;
 
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultDesktopManager;
+import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -48,6 +52,7 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
         setJMenuBar(crearMenu());
         
         Sub_Ventanas = new JDesktopPane();
+        Sub_Ventanas.setDesktopManager(new DesktopManager_Modificado());
         getContentPane().add(Sub_Ventanas);
         
         Sub_Ventanas.add(ventanaBodega);
@@ -76,7 +81,7 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
         Listado_Bodegas.agregarBodega("Primera Bodega");
         Listado_Bodegas.agregarBodega("Segunda Bodega");
         Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("que pasa si hay una bodega que es muy muy grande en su nombre: ?Primera Bodega");
         Listado_Bodegas.agregarBodega("Segunda Bodega");
         Listado_Bodegas.agregarBodega("Tercera Bodega");
         Listado_Bodegas.agregarBodega("Primera Bodega");
@@ -116,5 +121,10 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         
-    }
+    }    
+    
+    
 }
+
+
+
