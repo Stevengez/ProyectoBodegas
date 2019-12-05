@@ -5,112 +5,89 @@
  */
 package proyectobodegas;
 
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import proyectobodegas.Estructura.Bodega;
 
 /**
  *
  * @author propietario
  */
-public class ProyectoBodegas extends JFrame{
+public class ProyectoBodegas extends JFrame implements ActionListener{
 
+    private JDesktopPane Sub_Ventanas;
+    private Bodega Listado_Bodegas;
+    private Ventana_Interna_Bodegas ventanaBodega;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Bodega Lista_Bodegas = new Bodega();
-        //Pruebas iniciales de la estructura.
-        Lista_Bodegas.agregarBodega("Primera");
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Primer Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
-        
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Segundo Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
-        
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Tercer Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");       
-        
-        Lista_Bodegas.agregarBodega("Segunda");
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Primer Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
-        
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Segundo Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
-        
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Tercer Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");    
-        
-        Lista_Bodegas.agregarBodega("Tercera");
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Primer Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
-        
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Segundo Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");
-        
-        Lista_Bodegas.ultimaAgregada().Niveles().agregarNivel("Tercer Nivel");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().agregarArea("Area 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 1");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().agregarEstante("Estante 2");
-        Lista_Bodegas.ultimaAgregada().Niveles().ultimoAgregado().Areas().ultimaAgregada().Estantes().ultimoAgregado().Secciones().agregarSeccion("Seccion 1");       
-        
-        while(Lista_Bodegas.SiguienteBodega()){
-            System.out.println("Estoy en la bodega: "+Lista_Bodegas.bodegaActual().obtenerIdentificador());
-            while(Lista_Bodegas.bodegaActual().Niveles().SiguienteNivel()){
-                System.out.println("     Estoy en el nivel: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().obtenerIdentificador());
-                while(Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().SiguienteArea()){
-                    System.out.println("          Estoy en el area: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().obtenerIdentificador());
-                    while(Lista_Bodegas
-                            .bodegaActual()
-                            .Niveles()
-                            .nivelActual()
-                            .Areas()
-                            .areaActual()
-                            .Estantes()
-                            .SiguienteEstante()){
-                        System.out.println("               Estoy en el estante: "+Lista_Bodegas.bodegaActual().Niveles().nivelActual().Areas().areaActual().Estantes().estanteActual().obtenerIdentificador());
-                    }
-                }
-            }
-        }
+        ProyectoBodegas GUI = new ProyectoBodegas();
+    }
+    
+    public ProyectoBodegas() {
+        InicializarDatos();
+        InicializarVentana();
         
     }
     
-    public void IniciarVentana(){
+    public void InicializarVentana(){
+        setTitle("Programa Bodegas");
+        setSize(1300,700);
+        setJMenuBar(crearMenu());
+        
+        Sub_Ventanas = new JDesktopPane();
+        getContentPane().add(Sub_Ventanas);
+        
+        Sub_Ventanas.add(ventanaBodega);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        
         
     }
     
+    public void InicializarDatos(){
+        Listado_Bodegas = new Bodega();
+        llenarDatosdePrueba();
+        ventanaBodega= new Ventana_Interna_Bodegas(Listado_Bodegas);
+    }
+    
+    public void llenarDatosdePrueba(){
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+    }
+    
+    public Bodega obtenerDatosdeBodega(){
+        return Listado_Bodegas;
+    }
+    
+    public JMenuBar crearMenu(){
+        
+        JMenuBar menu_superior = new JMenuBar();
+        
+        JMenu menu = new JMenu("Document");
+        
+        JMenuItem primero = new JMenuItem("Inicio");
+        
+        menu.add(primero);
+        menu_superior.add(menu);
+        
+        return menu_superior;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        
+    }
 }

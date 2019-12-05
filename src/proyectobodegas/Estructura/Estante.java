@@ -173,4 +173,11 @@ public class Estante {
         return false;
     }
     
+    /**
+     * Reinicia la lista para poder recorrerla desde el inicio
+     */
+    public void reiniciarLista(){
+        lista_inicializada = false;
+    }
+    
 }

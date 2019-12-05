@@ -11,12 +11,14 @@ package proyectobodegas.Estructura;
  */
 public class Requisitos {
     private Nodo_Requisito Nodo_requisito_inicial, Nodo_requisito_final, Nodo_requisito_actual;
+    private boolean lista_inicializada;
     private int Size;
     
     public Requisitos(){
         Nodo_requisito_inicial = null;
         Nodo_requisito_final = null;
         Nodo_requisito_actual = null;
+        lista_inicializada = false;
         Size = 0;
     }
     
@@ -25,9 +27,19 @@ public class Requisitos {
     }
     
     public boolean siguienteRequisito(){
-        if(Nodo_requisito_actual.obtenerSiguiente() != null){
-            Nodo_requisito_actual = Nodo_requisito_actual.obtenerSiguiente();
-            return true;
+        if(!lista_inicializada){
+            Nodo_requisito_actual = Nodo_requisito_inicial;
+            lista_inicializada = true;
+            if(Size>0){
+                return true;
+            }
+        }
+        
+        if(Size > 1 ){
+            if(Nodo_requisito_actual.obtenerSiguiente()!= null){
+                Nodo_requisito_actual = Nodo_requisito_actual.obtenerSiguiente();
+                return true;
+            }   
         }
         return false;
     }
@@ -60,6 +72,13 @@ public class Requisitos {
         if(Nodo_requisito_actual.obtenerSiguiente()!=null){
             Nodo_requisito_actual.obtenerSiguiente().definirAnterior(Nodo_requisito_actual.obtenerAnterior());
         }
+    }
+    
+    /**
+     * Reinicia la lista para poder recorrerla desde el inicio
+     */
+    public void reiniciarLista(){
+        lista_inicializada = false;
     }
     
 }

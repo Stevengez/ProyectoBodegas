@@ -175,6 +175,9 @@ public class Bodega {
         return false;
     }
     
+    /**
+     * Reinicia la lista para poder recorrerla desde el inicio
+     */
     public void reiniciarLista(){
         lista_inicializada = false;
     }
