@@ -67,6 +67,33 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
         Listado_Bodegas.agregarBodega("Primera Bodega");
         Listado_Bodegas.agregarBodega("Segunda Bodega");
         Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("Primera Bodega");
+        Listado_Bodegas.agregarBodega("Segunda Bodega");
+        Listado_Bodegas.agregarBodega("Tercera Bodega");
     }
     
     public Bodega obtenerDatosdeBodega(){
