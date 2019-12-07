@@ -12,6 +12,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -20,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import proyectobodegas.Estructura.Bodega;
@@ -28,26 +32,24 @@ import proyectobodegas.Estructura.Bodega;
  *
  * @author propietario
  */
-public class Ventana_Interna_Bodegas extends JInternalFrame {
+public class Ventana_Interna extends JInternalFrame {
     private DefaultTableModel modelo_tabla_bodegas;
     private JTable tabla_bodegas;
     private JPanel contenedor;
-    private int y;
+    private String Categoria;
     private Dimension ventanaSize;
     
-    public Ventana_Interna_Bodegas(Bodega lista_bodegas){
-        setTitle("Listado de Bodegas");
-        y = 0;
+    public Ventana_Interna(Bodega lista_bodegas, String Categoria, ActionListener Acciones){
+        this.Categoria = Categoria;
         
-        
-        add(crearContenedor(lista_bodegas));
-        pack();
-        //setMinimumSize(this.getSize());
+        setTitle("Listado de "+Categoria+"s");
+        setMinimumSize(new Dimension(getWidth(),400));
         setMaximumSize(new Dimension(1300,700));
-        
         setResizable(true);
         setClosable(true);
         setMaximizable(true);
+        add(crearContenedor(lista_bodegas));
+        pack();
         setVisible(true);
     }
     
@@ -55,8 +57,9 @@ public class Ventana_Interna_Bodegas extends JInternalFrame {
         
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(5,5,5,5);
         c.gridx = 0;
-        c.gridy = y;
+        c.gridy = 0;
         
         
         contenedor = new JPanel();
@@ -65,9 +68,11 @@ public class Ventana_Interna_Bodegas extends JInternalFrame {
         
         JPanel agregar_bodega = new JPanel();
         agregar_bodega.setLayout(new GridBagLayout());
+        agregar_bodega.setOpaque(true);
+        agregar_bodega.setBackground(Color.WHITE);
         
         
-        JLabel label_agregar = new JLabel("Agregar Bodega");
+        JLabel label_agregar = new JLabel("Agregar "+Categoria);
         JTextField nueva_bodega_textfield = new JTextField();
         JButton boton_agregar = new JButton("Agregar");
         c.gridx = 0;
@@ -84,7 +89,7 @@ public class Ventana_Interna_Bodegas extends JInternalFrame {
         c.insets = new Insets(10,20,10,20);
         
         contenedor.add(agregar_bodega,c);
-        y++;
+        
         llenarDatos(lista_bodegas);
         contenedor.setVisible(true);
         JScrollPane scrollpane = new JScrollPane(contenedor);
@@ -94,30 +99,42 @@ public class Ventana_Interna_Bodegas extends JInternalFrame {
     private void llenarDatos(Bodega lista_bodegas){
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
+        int y = 0;
         c.gridy = y;
-        c.gridwidth = 3;
+        //c.gridwidth = 3;
+        
+        JPanel Contendor_Lista = new JPanel(new GridBagLayout());
+            Contendor_Lista.setOpaque(true);
+            Contendor_Lista.setBackground(Color.WHITE);
         
         while(lista_bodegas.SiguienteBodega()){
             c.gridx = 0;
             c.gridy = y;
+            c.insets = new Insets(5,5,5,5);
             
-            JPanel nueva_fila = new JPanel(new GridBagLayout());
-            nueva_fila.setOpaque(true);
-            nueva_fila.setBackground(Color.WHITE);
-                        
             JLabel Nombre = new JLabel();
-            Nombre.setBackground(Color.WHITE);
-            Nombre.setOpaque(true);
+            
             Nombre.setText(lista_bodegas.bodegaActual().obtenerIdentificador());
+            Nombre.setHorizontalAlignment(SwingConstants.CENTER);
             
+            JButton Ver = new JButton("Abrir");
             JButton Editar = new JButton("Editar");
-            Editar.setBounds(0, 0, 80, 10);
+            JButton Eliminar = new JButton("Eliminar");
             
-            nueva_fila.add(Nombre);
-            nueva_fila.add(Editar);
+            Contendor_Lista.add(Nombre,c);
+            c.gridx = 1;
+            Contendor_Lista.add(Ver,c);
+            c.gridx = 2;
+            Contendor_Lista.add(Editar,c);
+            c.gridx = 3;
+            Contendor_Lista.add(Eliminar,c);
             
-            contenedor.add(nueva_fila,c);
             y++;
         }
+        
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridwidth = 3;
+        contenedor.add(Contendor_Lista,c);
     }
 }

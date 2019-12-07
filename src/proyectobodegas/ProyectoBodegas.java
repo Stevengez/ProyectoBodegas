@@ -5,23 +5,13 @@
  */
 package proyectobodegas;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.DefaultDesktopManager;
-import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import proyectobodegas.Estructura.Bodega;
 
 /**
@@ -32,7 +22,7 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
 
     private JDesktopPane Sub_Ventanas;
     private Bodega Listado_Bodegas;
-    private Ventana_Interna_Bodegas ventanaBodega;
+    private Ventana_Interna ventanaBodega;
     /**
      * @param args the command line arguments
      */
@@ -65,40 +55,14 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
     public void InicializarDatos(){
         Listado_Bodegas = new Bodega();
         llenarDatosdePrueba();
-        ventanaBodega= new Ventana_Interna_Bodegas(Listado_Bodegas);
+        ventanaBodega= new Ventana_Interna(Listado_Bodegas, "Bodega", this);
     }
     
     public void llenarDatosdePrueba(){
         Listado_Bodegas.agregarBodega("Primera Bodega");
         Listado_Bodegas.agregarBodega("Segunda Bodega");
         Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("que pasa si hay una bodega que es muy muy grande en su nombre: ?Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
-        Listado_Bodegas.agregarBodega("Primera Bodega");
-        Listado_Bodegas.agregarBodega("Segunda Bodega");
-        Listado_Bodegas.agregarBodega("Tercera Bodega");
+        Listado_Bodegas.agregarBodega("CUarta Bodega: Utencilios de Cocina");
     }
     
     public Bodega obtenerDatosdeBodega(){
@@ -109,7 +73,7 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
         
         JMenuBar menu_superior = new JMenuBar();
         
-        JMenu menu = new JMenu("Document");
+        JMenu menu = new JMenu("Menu");
         
         JMenuItem primero = new JMenuItem("Inicio");
         
@@ -120,6 +84,12 @@ public class ProyectoBodegas extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e) {
+        switch(e.getActionCommand()){
+            case "verNiveles":
+                System.out.println("Clicaste abrir niveles: "+e.getActionCommand());
+                break;
+            
+        }
         
     }    
     

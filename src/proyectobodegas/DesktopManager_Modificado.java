@@ -18,12 +18,12 @@ public class DesktopManager_Modificado extends DefaultDesktopManager {
 
     @Override
     public void beginDraggingFrame(JComponent f) {
-        // Don't do anything. Needed to prevent the DefaultDesktopManager setting the dragMode
+        // 
     }
 
     @Override
     public void beginResizingFrame(JComponent f, int direction) {
-        // Don't do anything. Needed to prevent the DefaultDesktopManager setting the dragMode
+        // 
     }
 
     @Override
