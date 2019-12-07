@@ -72,9 +72,10 @@ public class Ventana_Interna extends JInternalFrame {
         agregar_bodega.setBackground(Color.WHITE);
         
         
-        JLabel label_agregar = new JLabel("Agregar "+Categoria);
+        JLabel label_agregar = new JLabel("Nombre de "+Categoria);
         JTextField nueva_bodega_textfield = new JTextField();
-        JButton boton_agregar = new JButton("Agregar");
+        JButton boton_buscar = new JButton("Agregar");
+        JButton boton_agregar = new JButton("Buscar");
         c.gridx = 0;
         agregar_bodega.add(label_agregar,c);
         c.gridx = 1;
@@ -82,6 +83,8 @@ public class Ventana_Interna extends JInternalFrame {
         agregar_bodega.add(nueva_bodega_textfield,c);
         c.ipadx = 0;
         c.gridx = 2;
+        agregar_bodega.add(boton_buscar,c);
+        c.gridx = 3;
         agregar_bodega.add(boton_agregar,c);
        
         c.gridx = 0;
