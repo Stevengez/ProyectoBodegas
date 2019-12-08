@@ -20,14 +20,6 @@ public class Boton extends JButton{
         setText(Texto);
     }
     
-    public void setLista(Nivel Lista){
-        Lista_Niveles = Lista;
-    }
-    
-    public Nivel getListaNiveles(){
-        return Lista_Niveles;
-    }
-    
     public void setOrigen(int origen){
         this.origen = origen;
     }
