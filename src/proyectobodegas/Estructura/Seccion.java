@@ -114,6 +114,9 @@ public class Seccion {
     
     public boolean irAIndice(int indice){
         Nodo_seccion_actual = Nodo_seccion_inicial;
+        if(indice == 0 ){
+            return true;
+        }
         while(SiguienteSeccion()){
             if(Nodo_seccion_actual.obtenerIndice()==indice){
                 return true;

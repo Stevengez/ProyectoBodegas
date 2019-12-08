@@ -117,6 +117,9 @@ public class Bodega {
     
     public boolean irAIndice(int indice){
         Nodo_bodega_actual = Nodo_bodega_inicial;
+        if(indice == 0 ){
+            return true;
+        }
         while(SiguienteBodega()){
             if(Nodo_bodega_actual.obtenerIndice()==indice){
                 return true;

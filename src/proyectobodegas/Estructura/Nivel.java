@@ -114,6 +114,9 @@ public class Nivel {
     
     public boolean irAIndice(int indice){
         Nodo_nivel_actual = Nodo_nivel_inicial;
+        if(indice == 0 ){
+            return true;
+        }
         while(SiguienteNivel()){
             if(Nodo_nivel_actual.obtenerIndice()==indice){
                 return true;

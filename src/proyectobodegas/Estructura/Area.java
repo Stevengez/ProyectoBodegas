@@ -114,6 +114,9 @@ public class Area {
     
     public boolean irAIndice(int indice){
         Nodo_area_actual = Nodo_area_inicial;
+        if(indice == 0 ){
+            return true;
+        }
         while(SiguienteArea()){
             if(Nodo_area_actual.obtenerIndice()==indice){
                 return true;

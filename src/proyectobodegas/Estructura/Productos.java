@@ -113,6 +113,9 @@ public class Productos {
     
     public boolean irAIndice(int indice){
         Nodo_producto_actual = Nodo_producto_inicial;
+        if(indice == 0 ){
+            return true;
+        }
         while(SiguienteProducto()){
             if(Nodo_producto_actual.obtenerIndice()==indice){
                 return true;

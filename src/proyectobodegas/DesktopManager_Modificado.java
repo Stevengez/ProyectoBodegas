@@ -1,7 +1,3 @@
-/*
- * Here comes the text of your license
- * Each line should be prefixed with  * 
- */
 package proyectobodegas;
 
 import java.awt.Container;
@@ -12,7 +8,7 @@ import javax.swing.JInternalFrame;
 
 /**
  *
- * @author propietario
+ * @author Steven Jocol
  */
 public class DesktopManager_Modificado extends DefaultDesktopManager {
 

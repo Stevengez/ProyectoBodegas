@@ -115,6 +115,9 @@ public class Estante {
     
     public boolean irAIndice(int indice){
         Nodo_estante_actual = Nodo_estante_inicial;
+        if(indice == 0 ){
+            return true;
+        }
         while(SiguienteEstante()){
             if(Nodo_estante_actual.obtenerIndice()==indice){
                 return true;
