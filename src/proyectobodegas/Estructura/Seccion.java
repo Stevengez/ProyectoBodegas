@@ -143,6 +143,7 @@ public class Seccion {
         }
         
         while(Temporal.obtenerSiguiente()!= null){
+            Temporal = Temporal.obtenerSiguiente();
             if(Temporal.obtenerIdentificador().equals(identificador)){
                 Nodo_seccion_actual = Temporal;
                 return true;
@@ -173,6 +174,10 @@ public class Seccion {
             }
         }
         return false;
+    }
+    
+    public int obtenerSize(){
+        return Size;
     }
     
     /**

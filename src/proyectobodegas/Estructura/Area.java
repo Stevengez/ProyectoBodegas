@@ -168,11 +168,16 @@ public class Area {
         }
         
         while(Temporal.obtenerSiguiente()!= null){
+            Temporal = Temporal.obtenerSiguiente();
             if(Temporal.obtenerIdentificador().equals(identificador)){
                 return true;
             }
         }
         return false;
+    }
+    
+    public int obtenerSize(){
+        return Size;
     }
     
     /**

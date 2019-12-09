@@ -74,6 +74,10 @@ public class Requisitos {
         }
     }
     
+    public int obtenerSize(){
+        return Size;
+    }
+    
     /**
      * Reinicia la lista para poder recorrerla desde el inicio
      */

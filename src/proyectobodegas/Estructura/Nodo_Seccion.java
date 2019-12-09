@@ -12,13 +12,14 @@ package proyectobodegas.Estructura;
 public class Nodo_Seccion {
     
     private Nodo_Seccion Nodo_seccion_siguiente, Nodo_seccion_anterior;
+    private Productos Lista_Productos;
     private String identificador;
     private int indice;
     
     public Nodo_Seccion(int indice, String identificador){
         Nodo_seccion_siguiente = null;
         Nodo_seccion_anterior = null;
-        
+        Lista_Productos = new Productos();
         this.indice = indice;
         this.identificador = identificador;
     }
@@ -57,4 +58,7 @@ public class Nodo_Seccion {
         return identificador;
     }
     
+    public Productos Productos(){
+        return Lista_Productos;
+    }
 }
