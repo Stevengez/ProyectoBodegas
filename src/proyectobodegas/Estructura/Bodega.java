@@ -146,6 +146,7 @@ public class Bodega {
         }
         
         while(Temporal.obtenerSiguiente()!= null){
+            Temporal = Temporal.obtenerSiguiente();
             if(Temporal.obtenerIdentificador().equals(identificador)){
                 Nodo_bodega_actual = Temporal;
                 return true;

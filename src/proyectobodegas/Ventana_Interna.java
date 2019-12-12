@@ -248,11 +248,11 @@ public class Ventana_Interna extends JInternalFrame implements ActionListener {
                             c.gridy = y;
                             this.agregarFila(Constantes.ORIGEN_BODEGA, c, y, nuevo_elemento_textfield.getText(), Lista_Bodegas.obtenerSize(), Contenedor_Lista);
                             y++;
+                            nuevo_elemento_textfield.setText("");
                             this.pack();
                             if (this.getHeight() >= Contexto.getHeight() - 65) {
                                 this.setSize(this.getWidth(), Contexto.getHeight() - 65);
                             }
-                            Contenedor_Lista.repaint();
                         } else {
                             JOptionPane.showMessageDialog(null, "EL nombre de bodega no es valido o ya existe.");
                         }
@@ -296,7 +296,6 @@ public class Ventana_Interna extends JInternalFrame implements ActionListener {
                             if (this.getHeight() >= Contexto.getHeight() - 65) {
                                 this.setSize(this.getWidth(), Contexto.getHeight() - 65);
                             }
-                            Contenedor_Lista.repaint();
                         } else {
                             JOptionPane.showMessageDialog(null, "EL nombre de bodega no es valido o ya existe.");
                         }
@@ -341,7 +340,6 @@ public class Ventana_Interna extends JInternalFrame implements ActionListener {
                             if (this.getHeight() >= Contexto.getHeight() - 65) {
                                 this.setSize(this.getWidth(), Contexto.getHeight() - 65);
                             }
-                            Contenedor_Lista.repaint();
                         } else {
                             JOptionPane.showMessageDialog(null, "EL nombre del area no es valido o ya existe.");
                         }
@@ -386,7 +384,6 @@ public class Ventana_Interna extends JInternalFrame implements ActionListener {
                             if (this.getHeight() >= Contexto.getHeight() - 65) {
                                 this.setSize(this.getWidth(), Contexto.getHeight() - 65);
                             }
-                            Contenedor_Lista.repaint();
                         } else {
                             JOptionPane.showMessageDialog(null, "EL nombre del area no es valido o ya existe.");
                         }
@@ -431,7 +428,6 @@ public class Ventana_Interna extends JInternalFrame implements ActionListener {
                             if (this.getHeight() >= Contexto.getHeight() - 65) {
                                 this.setSize(this.getWidth(), Contexto.getHeight() - 65);
                             }
-                            Contenedor_Lista.repaint();
                         } else {
                             JOptionPane.showMessageDialog(null, "EL nombre del area no es valido o ya existe.");
                         }

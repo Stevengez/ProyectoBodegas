@@ -49,7 +49,7 @@ public class Nodo_Requisito {
     }
     
     public void definirAnterior(Nodo_Requisito anterior){
-        Nodo_requisito_siguiente = anterior;
+        Nodo_requisito_anterior = anterior;
     }
     
     public void definirIdentificador(String identificador){
